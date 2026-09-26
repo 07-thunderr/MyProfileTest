@@ -1,116 +1,586 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Yadav - Profile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amit Yadav | Portfolio</title>
 
-    <style>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #0b1220;
+        color: #f4f7ff;
+        min-height: 100vh;
+        padding: 35px;
+    }
+
+    .portfolio {
+        max-width: 1150px;
+        margin: auto;
+        background: #111a2b;
+        border-radius: 28px;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 310px 1fr;
+        box-shadow: 0 20px 60px rgba(0,0,0,.35);
+        border: 1px solid #25334d;
+    }
+
+    /* LEFT SIDEBAR */
+    .sidebar {
+        background: #0d1627;
+        padding: 38px 28px;
+        border-right: 1px solid #26344c;
+    }
+
+    .avatar {
+        width: 135px;
+        height: 135px;
+        margin: 5px auto 25px;
+        border-radius: 50%;
+        border: 4px solid #69a9ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #17243a;
+        color: #75b5ff;
+        font-size: 52px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .tagline {
+        text-align: center;
+        color: #9db5d8;
+        font-style: italic;
+        font-size: 17px;
+        margin-bottom: 34px;
+    }
+
+    .contact {
+        margin-bottom: 30px;
+    }
+
+    .contact-item {
+        display: flex;
+        gap: 12px;
+        margin: 20px 0;
+        color: #dce7f7;
+        line-height: 1.35;
+    }
+
+    .icon {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        border-radius: 50%;
+        background: #72b2ff;
+        color: #08111f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .contact small {
+        display: block;
+        color: #8094b2;
+        margin-top: 3px;
+    }
+
+    .side-card {
+        border: 1px solid #2c3b55;
+        border-radius: 16px;
+        padding: 20px;
+        margin-top: 25px;
+        background: #111d31;
+    }
+
+    .side-title {
+        font-size: 20px;
+        margin-bottom: 17px;
+        color: #bcd6ff;
+    }
+
+    .fact {
+        display: flex;
+        justify-content: space-between;
+        padding: 7px 0;
+        color: #aebdd2;
+    }
+
+    .fact strong {
+        color: #f3f6fb;
+    }
+
+    .quote {
+        margin-top: 35px;
+        color: #82baff;
+        font-size: 19px;
+        line-height: 1.5;
+        font-style: italic;
+        text-align: center;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+        padding: 38px;
+    }
+
+    .header {
+        margin-bottom: 28px;
+    }
+
+    .header h1 {
+        font-size: clamp(48px, 6vw, 78px);
+        line-height: .95;
+        letter-spacing: -3px;
+        color: white;
+    }
+
+    .header h1 span {
+        color: #65aaff;
+    }
+
+    .subtitle {
+        margin-top: 15px;
+        color: #d9e4f5;
+        letter-spacing: 3px;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .line {
+        width: 210px;
+        height: 4px;
+        background: #65aaff;
+        border-radius: 10px;
+        margin-top: 16px;
+    }
+
+    .section {
+        background: #172237;
+        border: 1px solid #273751;
+        border-radius: 19px;
+        padding: 24px 26px;
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        color: #cce0ff;
+        font-size: 27px;
+        margin-bottom: 16px;
+    }
+
+    .section-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #72b2ff;
+        color: #08111f;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .about {
+        color: #d2dbea;
+        line-height: 1.7;
+        font-size: 16px;
+    }
+
+    .education {
+        background: #111d31;
+        border: 1px solid #2b3b55;
+        border-radius: 13px;
+        padding: 18px;
+    }
+
+    .education-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .education h3 {
+        color: white;
+        margin-bottom: 6px;
+    }
+
+    .education p {
+        color: #9fb0c9;
+    }
+
+    .year {
+        color: #9fc6ff;
+        white-space: nowrap;
+    }
+
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 11px;
+    }
+
+    .skill {
+        padding: 9px 18px;
+        border-radius: 22px;
+        background: #233b67;
+        border: 1px solid #4d7fbe;
+        color: #e5efff;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .skill:nth-child(2n) { background: #3b2c67; border-color: #8066bd; }
+    .skill:nth-child(3n) { background: #194f59; border-color: #4a9aa4; }
+    .skill:nth-child(4n) { background: #5a4420; border-color: #a17b39; }
+
+    .project {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 13px 0;
+        border-bottom: 1px solid #2b3850;
+    }
+
+    .project:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .project-icon {
+        font-size: 25px;
+        width: 35px;
+        text-align: center;
+    }
+
+    .project h3 {
+        color: #f4f7ff;
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+
+    .project p {
+        color: #9cabc0;
+        font-size: 14px;
+    }
+
+    .badge {
+        margin-left: auto;
+        white-space: nowrap;
+        padding: 7px 13px;
+        border-radius: 18px;
+        background: #153d3e;
+        color: #78ddd7;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .project:nth-child(3) .badge {
+        background: #282d61;
+        color: #aeb8ff;
+    }
+
+    .interests {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        text-align: center;
+    }
+
+    .interest {
+        color: #d6dfed;
+        padding: 8px;
+    }
+
+    .interest-icon {
+        font-size: 25px;
+        display: block;
+        margin-bottom: 7px;
+    }
+
+    .interest span {
+        font-size: 13px;
+        color: #aebbd0;
+    }
+
+    .footer {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        justify-content: center;
+        margin-top: 25px;
+        color: #a9c8ef;
+        letter-spacing: 4px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .footer::before,
+    .footer::after {
+        content: "";
+        height: 1px;
+        background: #557294;
+        flex: 1;
+    }
+
+    @media (max-width: 850px) {
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
+            padding: 15px;
         }
 
-        .profile {
-            width: 500px;
-            margin: 50px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #ccc;
+        .portfolio {
+            grid-template-columns: 1fr;
         }
 
-        h1 {
-            text-align: center;
-            color: #222;
+        .sidebar {
+            border-right: none;
+            border-bottom: 1px solid #26344c;
         }
 
-        .subtitle {
-            text-align: center;
-            color: #666;
+        .main {
+            padding: 25px;
         }
 
-        h2 {
-            color: #333;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
+        .interests {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 500px) {
+        .header h1 {
+            font-size: 48px;
         }
 
-        p {
-            line-height: 1.6;
+        .education-row {
+            flex-direction: column;
+            gap: 8px;
         }
 
-        ul {
-            line-height: 1.8;
+        .badge {
+            display: none;
         }
-
-        .skills span {
-            display: inline-block;
-            background: #eee;
-            padding: 7px 12px;
-            margin: 5px;
-            border-radius: 5px;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 25px;
-            color: #777;
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
 
-    <div class="profile">
+<div class="portfolio">
 
-        <h1>Amit Yadav</h1>
-        <p class="subtitle">Engineering Student | IT | Programmer</p>
+    <aside class="sidebar">
 
-        <h2>About Me</h2>
-        <p>
-            Hello! I am Amit, an Information Technology engineering student.
-            I am interested in programming, web development, databases,
-            and software projects. I am continuously learning new technologies
-            and improving my technical skills.
-        </p>
+        <!-- No profile photo: initials are used instead -->
+        <div class="avatar">AY</div>
 
-        <h2>Education</h2>
-        <p>
-            <strong>Degree:</strong> Bachelor of Engineering<br>
-            <strong>Branch:</strong> Information Technology
-        </p>
+        <div class="tagline">Stay Consistent</div>
 
-        <h2>Skills</h2>
-        <div class="skills">
-            <span>C++</span>
-            <span>Java</span>
-            <span>SQL</span>
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>DBMS</span>
-            <span>DSA</span>
+        <div class="contact">
+            <div class="contact-item">
+                <div class="icon">⌖</div>
+                <div>
+                    <strong>TCET, Mumbai</strong>
+                    <small>Engineering College</small>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="icon">@</div>
+                <div>
+                    <strong>amit.yadav@email.com</strong>
+                    <small>Let's connect!</small>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="icon">&lt;/&gt;</div>
+                <div>
+                    <strong>github.com/amit-yadav</strong>
+                    <small>My code journey</small>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="icon">in</div>
+                <div>
+                    <strong>linkedin.com/in/amit-yadav</strong>
+                    <small>Professional profile</small>
+                </div>
+            </div>
         </div>
 
-        <h2>Projects</h2>
-        <ul>
-            <li>Smart Crop Advisor</li>
-            <li>Desktop Task Management System</li>
-            <li>Smart Classroom Ventilation & AQI System</li>
-        </ul>
+        <div class="side-card">
+            <div class="side-title">👤 Quick Facts</div>
 
-        <h2>Interests</h2>
-        <p>
-            Programming, Cricket, Fitness, Technology, and Learning New Things.
-        </p>
+            <div class="fact"><span>Age</span><strong>19</strong></div>
+            <div class="fact"><span>Height</span><strong>170 cm</strong></div>
+            <div class="fact"><span>College</span><strong>TCET</strong></div>
+            <div class="fact"><span>Branch</span><strong>IT</strong></div>
+            <div class="fact"><span>City</span><strong>Mumbai</strong></div>
+        </div>
+
+        <div class="quote">
+            “Small steps<br>
+            every day...”
+        </div>
+
+    </aside>
+
+
+    <main class="main">
+
+        <header class="header">
+            <h1>Amit <span>Yadav</span></h1>
+            <div class="subtitle">ENGINEERING STUDENT &nbsp; | &nbsp; IT &nbsp; | &nbsp; PROGRAMMER</div>
+            <div class="line"></div>
+        </header>
+
+
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">●</span>
+                About Me
+            </h2>
+
+            <p class="about">
+                Hi! I'm Amit, an Information Technology engineering student.
+                I'm passionate about programming, web development, databases
+                and building useful projects. I love learning new technologies,
+                improving my skills and exploring opportunities to grow —
+                both in tech and in life.
+            </p>
+        </section>
+
+
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">◆</span>
+                Education
+            </h2>
+
+            <div class="education">
+                <div class="education-row">
+                    <div>
+                        <h3>Bachelor of Engineering</h3>
+                        <p>Information Technology &nbsp; | &nbsp; TCET, Mumbai</p>
+                    </div>
+                    <div class="year">2023 – 2027</div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">&lt;/&gt;</span>
+                Skills
+            </h2>
+
+            <div class="skills">
+                <div class="skill">C++</div>
+                <div class="skill">Java</div>
+                <div class="skill">Python</div>
+                <div class="skill">SQL</div>
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">DBMS</div>
+                <div class="skill">DSA</div>
+                <div class="skill">Git & GitHub</div>
+                <div class="skill">Problem Solving</div>
+                <div class="skill">Communication</div>
+            </div>
+        </section>
+
+
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">▣</span>
+                Projects
+            </h2>
+
+            <div class="project">
+                <div class="project-icon">🌱</div>
+                <div>
+                    <h3>Smart Crop Advisor</h3>
+                    <p>AI-based crop prediction system for agricultural recommendations.</p>
+                </div>
+                <div class="badge">Backend</div>
+            </div>
+
+            <div class="project">
+                <div class="project-icon">☑</div>
+                <div>
+                    <h3>Desktop Task Management System</h3>
+                    <p>Java + MS SQL application for task tracking and management.</p>
+                </div>
+                <div class="badge">Desktop App</div>
+            </div>
+
+            <div class="project">
+                <div class="project-icon">♧</div>
+                <div>
+                    <h3>Smart Classroom Ventilation & AQI System</h3>
+                    <p>Arduino, sensors and LCD based smart air-exchange system.</p>
+                </div>
+                <div class="badge">Hardware + IoT</div>
+            </div>
+        </section>
+
+
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">♡</span>
+                Interests
+            </h2>
+
+            <div class="interests">
+                <div class="interest">
+                    <span class="interest-icon">🏋</span>
+                    <span>Fitness<br>& Gym</span>
+                </div>
+
+                <div class="interest">
+                    <span class="interest-icon">🏏</span>
+                    <span>Cricket</span>
+                </div>
+
+                <div class="interest">
+                    <span class="interest-icon">⌨</span>
+                    <span>Programming</span>
+                </div>
+
+                <div class="interest">
+                    <span class="interest-icon">📖</span>
+                    <span>Anime &<br>Mythology</span>
+                </div>
+
+                <div class="interest">
+                    <span class="interest-icon">✦</span>
+                    <span>Learning<br>New Things</span>
+                </div>
+            </div>
+        </section>
+
 
         <div class="footer">
-            © 2026 Amit Yadav
+            DREAM • LEARN • BUILD • GROW
         </div>
 
-    </div>
+    </main>
+
+</div>
 
 </body>
 </html>
